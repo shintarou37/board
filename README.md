@@ -5,8 +5,8 @@
 | --------          | ------  | ----------                |
 | nickname          | string  | null: false               |
 | GitHub            | text    |                           |
-| age               | integer |                           |
 | introduce         | text    |                           |
+| age               | integer |                           |
 | prefectures_id    | integer |                           |
 | language_id       | integer |                           |
 
@@ -37,8 +37,8 @@
 
 ### Association
 
-- belongs_to :user
 - has_many :comments
+- belongs_to :user
 
 ## comments テーブル
 
@@ -47,6 +47,6 @@
 | text             | text       | null: false,                   |
 ### Association
 
-belongs_to :user
-belongs_to :collect
-belongs_to :tweet
+- -belongs_to :user
+- belongs_to :collect
+- belongs_to :tweet
