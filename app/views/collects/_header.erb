@@ -1,9 +1,9 @@
 <header>
-  <h1 class = 'top_page'>Bulletin board</h1>
-  <ul class = 'lists'>
-    <li class = 'list'>掲示板へ</li>
-    <li class = 'list'>つぶやきへ</li>
-    <li class = 'list'>新規登録</li>
-    <li class = 'list'>ログイン</li>
+  <%= link_to 'Bulletin board',new_user_registration_path,class: "top_page"%>
+  <ul class = 'lists' id = 'lists'>
+    <li class = 'list' id = 'list'>掲示板へ</li>
+    <li class = 'list' id = 'list'>つぶやきへ</li>
+    <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>
+    <li class = 'list' id = 'list'>ログイン</li>
   </ul>
 </header>

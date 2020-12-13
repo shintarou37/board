@@ -20,7 +20,7 @@ header{
   align-items: center;
   justify-content: space-between;
 }
-.main h6{
+h6{
   position: relative;
   padding: 0.2em 0.5em;
   background: -webkit-linear-gradient(to right, rgb(255, 124, 111), #ffc994);
@@ -32,4 +32,7 @@ header{
 }
 .table{
   text-align: center;
+}
+.image{
+  position: relative;
 }

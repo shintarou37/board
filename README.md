@@ -6,7 +6,7 @@
 | nickname          | string  | null: false               |
 | GitHub            | text    |                           |
 | introduce         | text    |                           |
-| age               | integer |                           |
+| age_id            | integer |                           |
 | prefectures_id    | integer |                           |
 | language_id       | integer |                           |
 
