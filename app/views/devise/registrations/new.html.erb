@@ -1,7 +1,38 @@
+<div class = 'registrations'>
+  <div class = 'form'>
 <h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+  <h2>ニックネーム</h2>
+  <%= f.text_field :nickname, class:"nickname", id:"nickname", placeholder:"ニックネーム", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>GitHub</h2>
+  <%= f.text_field :GitHub, class:"nickname", id:"nickname", placeholder:"GitHub", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>introduce</h2>
+  <%= f.text_field :introduce, class:"nickname", id:"nickname", placeholder:"introduce", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>age_id</h2>
+  <%= f.text_field :age_id, class:"nickname", id:"nickname", placeholder:"age_id", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>prefectures_id</h2>
+  <%= f.text_field :prefectures_id, class:"nickname", id:"nickname", placeholder:"prefectures_id", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>language_id</h2>
+  <%= f.text_field :language_id, class:"nickname", id:"nickname", placeholder:"language_id", maxlength:"40" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -25,5 +56,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</div>
+</div>
