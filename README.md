@@ -13,7 +13,6 @@
 ### Association
 
 - has_many :collects
-- has_many :tweets
 - has_many :comments
 
 ## collects テーブル
@@ -28,17 +27,6 @@
 - has_many :comments
 - belongs_to :user
 
-## tweets テーブル
-
-| Column      | Type       | Options                        |
-| ------      | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
-| explanation | text       | null: false, foreign_key: true |
-
-### Association
-
-- has_many :comments
-- belongs_to :user
 
 ## comments テーブル
 
@@ -49,4 +37,3 @@
 
 - -belongs_to :user
 - belongs_to :collect
-- belongs_to :tweet
