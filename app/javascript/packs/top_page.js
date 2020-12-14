@@ -2,10 +2,7 @@ function load() {
   
   const submit_post = document.getElementById("submit_post")
   submit_post.addEventListener("click",(e)=>{
-    console.log('aaaaa')
-    // debugger
     const formData = new FormData(document.getElementById("form"));
-    
     const XHR = new XMLHttpRequest();
     XHR.open("POST", "/collects", true);
     XHR.responseType = "json";
