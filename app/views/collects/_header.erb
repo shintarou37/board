@@ -3,7 +3,7 @@
   <ul class = 'lists' id = 'lists'>
     <% if user_signed_in?%>
     
-    <li><%= link_to '掲示板へ', destroy_user_session_path, method: :delete, class: "logout"%> </li>
+    <li><%= link_to '掲示板へ', new_collect_path%> </li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
     <li><%= image_tag current_user.image,class: 'icon'%></li>
     <% else %>
