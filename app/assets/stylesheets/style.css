@@ -33,11 +33,7 @@ h6{
 .table{
   text-align: center;
 }
-/* .registrations{
-  position: relative;
-} */
-/* .form{
-  position: absolute;
-  top: 40%;
-  left: 40%;
-} */
+.icon{
+  width: 20px;
+  height: 20px;
+}

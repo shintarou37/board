@@ -52,6 +52,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <h1>ユーザーアイコン</h1>
+  <%= f.file_field :image, id:"item-image" %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
