@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 2020_12_14_055011) do
   create_table "collects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "explanation", null: false
     t.integer "language_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_collects_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,4 +61,5 @@ ActiveRecord::Schema.define(version: 2020_12_14_055011) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "collects", "users"
 end

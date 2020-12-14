@@ -17,10 +17,11 @@
 
 ## collects テーブル
 
-| Column          | Type      | Options                           |
-| ------          | ------    | -----------                       |
-| explanation     | text      | null: false,                      |
-| user            | references| null: false, foreign_key: true    |
+| Column          | Type      | Options                        |
+| ------          | ------    | -----------                    |
+| explanation     | text      | null: false                    |
+| language_id     | integer   | null: false                    |
+| user            | references| null: false, foreign_key: true |
 
 ### Association
 
@@ -35,5 +36,5 @@
 | text             | text       | null: false,                   |
 ### Association
 
-- -belongs_to :user
+- belongs_to :user
 - belongs_to :collect

@@ -1,5 +1,6 @@
 <h1>投稿かめん</h1>
 <%= form_with url:collects_path, method: :post do |form| %>
-  <%= form.text_field :content, id: "content" %>
+  <%= form.text_field :explanation, id: "content" %>
+  <%= form.text_field :language_id, id: "content" %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
