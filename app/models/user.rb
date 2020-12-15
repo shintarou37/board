@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :prefectures_id
   end
-  with_options numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
     validates :prefectures_id
     validates :age_id
     validates :language_id

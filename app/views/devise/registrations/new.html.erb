@@ -20,8 +20,8 @@
   </div>
 
   <div class="field">
-  <h2>age_id</h2>
-  <%= f.text_field :age_id, class:"nickname", id:"nickname", placeholder:"age_id", maxlength:"40" %>
+  <h2>年齢</h2>
+  <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"genre-select"}) %>
   </div>
 
   <div class="field">
@@ -30,13 +30,13 @@
   </div>
 
   <div class="field">
-  <h2>language_id</h2>
-  <%= f.text_field :language_id, class:"nickname", id:"nickname", placeholder:"language_id", maxlength:"40" %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h2>language_id</h2>
+  <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {}, {class:"genre-select"}) %>
   </div>
 
   <div class="field">
