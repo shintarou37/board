@@ -12,6 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.integer :age_id
       t.integer :prefectures_id
       t.integer :language_id
+      t.integer :type_id
+      t.integer :goal_id
 
       ## Recoverable
       t.string   :reset_password_token
