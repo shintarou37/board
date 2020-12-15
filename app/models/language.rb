@@ -12,5 +12,5 @@ class Language < ActiveHash::Base
   ]
   include ActiveHash::Associations
   has_many :users
-  has_many :collects
+  # has_many :collects
 end
