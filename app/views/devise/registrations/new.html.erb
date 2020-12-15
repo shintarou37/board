@@ -40,6 +40,11 @@
   </div>
 
   <div class="field">
+  <h2>エンジニアの種類</h2>
+  <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
   <h2>習得言語、技能</h2>
   <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"genre-select"}) %>
   </div>
