@@ -1,5 +1,25 @@
-<h1>投稿かめん</h1>
-<%= form_with url:collects_path, method: :post do |form| %>
-  <%= form.text_field :content, id: "content" %>
-  <%= form.submit '投稿する' , id: "submit" %>
+<%= render 'header'%>
+<h1>投稿画面</h1>
+<%= form_with model: @collect, id: "form" do |form| %>
+  <%= form.text_field :explanation, id: "content-1" %>
+  <%= form.text_field :language_id, id: "content-2" %>
+  <%= form.radio_button :gender, 1 %>
+  <%= form.submit '投稿する',id: "submit_post"%>
+<% end %>
+
+<div id="list">
+</div>
+
+<% @collects.each do |collect| %>
+  <div class="post">>
+    <div class="post-date">
+      投稿日時：<%= collect.created_at %>
+    </div>
+    <div class="post-content">
+      <%= collect.explanation %>
+    </div>
+    <div class="post-language">
+      <%= collect.language_id %>
+    </div>
+  </div>
 <% end %>
