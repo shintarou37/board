@@ -6,9 +6,11 @@
 | nickname          | string  | null: false               |
 | GitHub            | text    |                           |
 | introduce         | text    |                           |
+| prefectures_id    | integer | null: false               |
 | age_id            | integer |                           |
-| prefectures_id    | integer |                           |
 | language_id       | integer |                           |
+| type_id           | integer |                           |
+| goal_id           | integer |                           |
 
 ### Association
 
