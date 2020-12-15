@@ -13,6 +13,10 @@ function load() {
         return null;
       }
       const collect = XHR.response.collect;
+      if (collect.explanation === "" || collect.language_id === ""){
+        alert(`explanationもしくはlanguageが空です。必ず入力してください`);
+        return null;
+      }
       const list = document.getElementById("list");
       const formText_1 = document.getElementById("content-1" );
       const formText_2 = document.getElementById("content-2");

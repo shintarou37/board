@@ -3,6 +3,7 @@
 <%= form_with model: @collect, id: "form" do |form| %>
   <%= form.text_field :explanation, id: "content-1" %>
   <%= form.text_field :language_id, id: "content-2" %>
+  <%= form.radio_button :gender, 1 %>
   <%= form.submit '投稿する',id: "submit_post"%>
 <% end %>
 
