@@ -35,8 +35,13 @@
   </div>
 
   <div class="field">
-  <h2>language_id</h2>
+  <h2>在住都道府県</h2>
   <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>習得言語、技能</h2>
+  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"genre-select"}) %>
   </div>
 
   <div class="field">
