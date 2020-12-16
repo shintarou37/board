@@ -1,0 +1,16 @@
+<h1>詳細画面</h1>
+<div>募集言語
+<%= @collect.language.name %>
+<div>
+<div>募集エンジニアの種類
+<%= @collect.type.name %>
+<div>
+<div>作りたいもの
+<%= @collect.goal.name %>
+<div>
+<div>開発フレームワーク
+<%= @collect.framework.name %>
+<div>
+
+<div>
+<%= link_to '戻る', new_collect_path %>

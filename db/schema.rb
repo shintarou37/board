@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2020_12_14_055011) do
 
   create_table "collects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "explanation", null: false
-    t.integer "language_id", null: false
-    t.integer "type_id", null: false
-    t.integer "goal_id", null: false
-    t.integer "framework_id", null: false
+    t.integer "language_id"
+    t.integer "type_id"
+    t.integer "goal_id"
+    t.integer "framework_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

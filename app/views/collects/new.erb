@@ -1,25 +1,41 @@
 <%= render 'header'%>
 <h1>投稿画面</h1>
-<%= form_with model: @collect, id: "form" do |form| %>
-  <%= form.text_field :explanation, id: "content-1" %>
-  <%= form.text_field :language_id, id: "content-2" %>
-  <%= form.radio_button :gender, 1 %>
-  <%= form.submit '投稿する',id: "submit_post"%>
+<%= form_with model: @collect, id: "form" do |f| %>
+  <%= f.text_area :explanation, id: "content-1" %>
+  <h1>作りたいもの</h1>
+  <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
+  <h2>募集する習得言語、技能</h2>
+  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
+  <h2>募集するエンジニアの種類</h2>
+  <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
+  <h2>開発フレームワーク</h2>
+  <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
+  <%= f.submit '投稿する',id: "submit_post"%>
 <% end %>
 
-<div id="list">
-</div>
+
+  <div id="list">
+  </div>
+
 
 <% @collects.each do |collect| %>
-  <div class="post">>
+
+  <div class="post">> 
     <div class="post-date">
       投稿日時：<%= collect.created_at %>
     </div>
     <div class="post-content">
-      <%= collect.explanation %>
-    </div>
+      募集要項：<%= collect.explanation %>
+     </div>
     <div class="post-language">
-      <%= collect.language_id %>
-    </div>
+      求める習得言語、求める能力：<%= collect.language.name %>
+   </div>
+    <div class="post-language">
+      求めるエンジニアの種類：<%= collect.type.name %>
+   </div>
+    <div class="post-language">
+      開発フレームワーク：<%= collect.framework.name %>
+   </div>
+   <%= link_to '詳細画面', collect_path(collect.id)%>
   </div>
 <% end %>
