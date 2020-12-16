@@ -2,10 +2,9 @@
   <%= link_to 'Bulletin board',root_path,class: "top_page"%>
   <ul class = 'lists' id = 'lists'>
     <% if user_signed_in?%>
-    
     <li><%= link_to '掲示板へ', new_collect_path%> </li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
-    <li><%= image_tag current_user.image,class: 'icon'%></li>
+    <%# <li><%= image_tag current_user.image,class: 'icon'%></li> %>
     <% else %>
     <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
     <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>

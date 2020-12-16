@@ -5,7 +5,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-  <h2>ニックネーム</h2>
+  <h2>ニックネーム(必須)</h2>
   <%= f.text_field :nickname, class:"nickname", id:"nickname", placeholder:"ニックネーム", maxlength:"40" %>
   </div>
 
@@ -20,23 +20,33 @@
   </div>
 
   <div class="field">
-  <h2>age_id</h2>
-  <%= f.text_field :age_id, class:"nickname", id:"nickname", placeholder:"age_id", maxlength:"40" %>
-  </div>
-
-  <div class="field">
-  <h2>prefectures_id</h2>
-  <%= f.text_field :prefectures_id, class:"nickname", id:"nickname", placeholder:"prefectures_id", maxlength:"40" %>
-  </div>
-
-  <div class="field">
-  <h2>language_id</h2>
-  <%= f.text_field :language_id, class:"nickname", id:"nickname", placeholder:"language_id", maxlength:"40" %>
+  <h2>年齢</h2>
+  <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+  <h2>現在お住まいの都道府県(必須)</h2>
+  <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>あなたのエンジニアの種類</h2>
+  <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>習得言語、技能</h2>
+  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>作りたいもの</h2>
+  <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {class:"genre-select"}) %>
   </div>
 
   <div class="field">

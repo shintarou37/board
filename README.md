@@ -25,7 +25,7 @@
 | language_id     | integer   | null: false                    |
 | type_id         | integer   | null: false                    |
 | goal_id         | integer   | null: false                    |
-| framework_id    | integer   |                                |
+| framework_id    | integer   | null: false                    |
 | user            | references| null: false, foreign_key: true |
 
 ### Association
