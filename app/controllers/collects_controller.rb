@@ -1,4 +1,5 @@
 class CollectsController < ApplicationController
+  before_action :collect, only: [:edit, :update, :show, :destroy]
   def index
   end
 
@@ -21,8 +22,30 @@ class CollectsController < ApplicationController
     @collect = Collect.find(params[:id])
   end
 
+  def edit
+    @collect = Collect.find(params[:id])
+  end
+
+  def update
+    if @collect.update(create_params)
+      redirect_to action: :new
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    collect = Collect.find(params[:id])
+    collect.destroy
+    redirect_to action: :new
+  end
+
   private
   def create_params
     params.require(:collect).permit(:explanation,:language_id,:goal_id,:type_id,:framework_id).merge(user_id: current_user.id)
+  end
+
+  def collect
+    @collect = Collect.find(params[:id])
   end
 end

@@ -1,16 +1,27 @@
 <h1>詳細画面</h1>
+
+<div>投稿ユーザー
+<%= current_user.nickname %>
+</div>
+<div>募集説明文
+<%=  @collect.explanation %>
+</div>
 <div>募集言語
 <%= @collect.language.name %>
-<div>
+</div>
 <div>募集エンジニアの種類
 <%= @collect.type.name %>
-<div>
+</div>
 <div>作りたいもの
 <%= @collect.goal.name %>
-<div>
+</div>
 <div>開発フレームワーク
 <%= @collect.framework.name %>
-<div>
+</div>
 
-<div>
+
 <%= link_to '戻る', new_collect_path %>
+<% if current_user.id == @collect.user_id %>
+<%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
+<%= link_to '投稿削除', collect_path(@collect.id), method: :delete %>
+<% end %>
