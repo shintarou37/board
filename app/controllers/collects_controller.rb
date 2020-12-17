@@ -19,11 +19,9 @@ class CollectsController < ApplicationController
   end
 
   def show
-    @collect = Collect.find(params[:id])
   end
 
   def edit
-    @collect = Collect.find(params[:id])
   end
 
   def update
@@ -35,8 +33,7 @@ class CollectsController < ApplicationController
   end
 
   def destroy
-    collect = Collect.find(params[:id])
-    collect.destroy
+    @collect.destroy
     redirect_to action: :new
   end
 
