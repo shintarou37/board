@@ -1,0 +1,8 @@
+<%= form_with model: @collect,url: collect_path(@collect.id), local: true do |f| %>
+<%= f.text_area :explanation %>
+<%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
+<%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
+<%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
+<%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
+<%= f.submit '投稿する',id: "submit_post"%>
+<% end %>
