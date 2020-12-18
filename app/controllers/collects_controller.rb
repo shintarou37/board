@@ -1,6 +1,7 @@
 class CollectsController < ApplicationController
   before_action :collect, only: [:edit, :update, :show, :destroy]
   def index
+    # binding.pry
   end
 
   def new

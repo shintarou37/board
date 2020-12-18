@@ -3,8 +3,13 @@
   <ul class = 'lists' id = 'lists'>
     <% if user_signed_in?%>
     <li><%= link_to '掲示板へ', new_collect_path%> </li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
-    <%# <li><%= image_tag current_user.image,class: 'icon'%></li> %>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
+    <li>
+      <%= link_to 'ユーザー登録', user_path(current_user.id)%>
+        <% if current_user.image.present? %>
+          <%= image_tag current_user.image,class: 'icon'%>
+        <% end %>
+    </li>
     <% else %>
     <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
     <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>
