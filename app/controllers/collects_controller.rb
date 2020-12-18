@@ -1,7 +1,6 @@
 class CollectsController < ApplicationController
   before_action :collect, only: [:edit, :update, :show, :destroy]
   def index
-    # binding.pry
   end
 
   def new
@@ -10,7 +9,6 @@ class CollectsController < ApplicationController
   end
 
   def create
-    binding.pry
     collect = Collect.create(create_params)
     collect_id = collect.id
     language = collect.language.name
