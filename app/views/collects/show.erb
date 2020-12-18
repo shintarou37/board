@@ -1,3 +1,4 @@
+<%= render 'header'%>
 <h1>詳細画面</h1>
 
 <div>投稿ユーザー
@@ -25,3 +26,15 @@
 <%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
 <%= link_to '投稿削除', collect_path(@collect.id), method: :delete %>
 <% end %>
+
+<%= form_with model: @comment, url: collect_comments_path(@collect.id),id: "comment_form" do |f| %>
+  <%= f.text_area :text %>
+  <%= f.submit '投稿する'%>
+<% end %>
+<div id='comments'>
+<% if @comments != nil %>
+  <% @comments.reverse_each do |comment| %>
+    <p>コメント:<%= comment.text %>   コメント投稿者<%= comment.user.nickname %></p>
+  <% end %>
+<% end %>
+</div>

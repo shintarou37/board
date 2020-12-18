@@ -9,6 +9,7 @@ class CollectsController < ApplicationController
   end
 
   def create
+    binding.pry
     collect = Collect.create(create_params)
     collect_id = collect.id
     language = collect.language.name
@@ -19,11 +20,14 @@ class CollectsController < ApplicationController
   end
 
   def show
-    @collect = Collect.find(params[:id])
+    collect = Collect.find(params[:id])
+    @comment = Comment.new
+    if collect.comments.present?
+      @comments = collect.comments
+    end
   end
 
   def edit
-    @collect = Collect.find(params[:id])
   end
 
   def update
@@ -35,8 +39,7 @@ class CollectsController < ApplicationController
   end
 
   def destroy
-    collect = Collect.find(params[:id])
-    collect.destroy
+    @collect.destroy
     redirect_to action: :new
   end
 
