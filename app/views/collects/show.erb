@@ -27,6 +27,11 @@
 <% end %>
 
 <%= form_with model: @comment, url: collect_comments_path(@collect.id),id: "comment_form" do |f| %>
-  <%= f.text_area :text, id: "text_comment" %>
-  <%= f.submit '投稿する',id: "submit_comment"%>
+  <%= f.text_area :text %>
+  <%= f.submit '投稿する'%>
 <% end %>
+<div id='comments'>
+  <% @comments.reverse_each do |comment| %>
+    <p><%= comment.text %></p>
+  <% end %>
+</div>
