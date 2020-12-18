@@ -20,8 +20,11 @@ class CollectsController < ApplicationController
   end
 
   def show
-    @comments = Comment.all
+    collect = Collect.find(params[:id])
     @comment = Comment.new
+    if collect.comments.present?
+      @comments = collect.comments
+    end
   end
 
   def edit

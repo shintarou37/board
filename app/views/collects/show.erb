@@ -1,3 +1,4 @@
+<%= render 'header'%>
 <h1>詳細画面</h1>
 
 <div>投稿ユーザー
@@ -31,7 +32,9 @@
   <%= f.submit '投稿する'%>
 <% end %>
 <div id='comments'>
+<% if @comments != nil %>
   <% @comments.reverse_each do |comment| %>
-    <p><%= comment.text %></p>
+    <p>コメント:<%= comment.text %>   コメント投稿者<%= comment.user.nickname %></p>
   <% end %>
+<% end %>
 </div>
