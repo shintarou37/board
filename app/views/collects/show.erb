@@ -25,3 +25,8 @@
 <%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
 <%= link_to '投稿削除', collect_path(@collect.id), method: :delete %>
 <% end %>
+
+<%= form_with model: @comment, url: collect_comments_path(@collect.id),id: "comment_form" do |f| %>
+  <%= f.text_area :text, id: "text_comment" %>
+  <%= f.submit '投稿する',id: "submit_comment"%>
+<% end %>

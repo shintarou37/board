@@ -9,6 +9,7 @@ class CollectsController < ApplicationController
   end
 
   def create
+    binding.pry
     collect = Collect.create(create_params)
     collect_id = collect.id
     language = collect.language.name
@@ -19,6 +20,8 @@ class CollectsController < ApplicationController
   end
 
   def show
+    @comments = Comment.all
+    @comment = Comment.new
   end
 
   def edit
