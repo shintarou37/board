@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_013721) do
     t.text "GitHub"
     t.text "introduce"
     t.integer "age_id"
-    t.integer "prefectures_id"
+    t.integer "prefecture_id"
     t.integer "language_id"
     t.integer "type_id"
     t.integer "goal_id"
