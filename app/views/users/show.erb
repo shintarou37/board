@@ -11,16 +11,12 @@
 <%= @user_show.age.name%>
 <h1>在住の都道府県</h1>
 <%= @user_show.prefecture.name%>
-<h1>年齢</h1>
-<%= @user_show.age.name%>
-<h1>年齢</h1>
-<%= @user_show.age.name%>
-<h1>年齢</h1>
-<%= @user_show.age.name%>
-<h1>年齢</h1>
-<%= @user_show.age.name%>
+<h1>習得言語、能力</h1>
+<%= @user_show.language.name%>
+<h1>エンジニアの種類</h1>
+<%= @user_show.type.name%>
+<h1>作りたいもの</h1>
+<%= @user_show.goal.name%>
 
-
-
-
-
+<%= link_to '掲示板へ', new_collect_path%>
+<%= link_to 'ユーザー情報編集', edit_collect_path%>
