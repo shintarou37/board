@@ -1,7 +1,7 @@
 class Collect < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :comments
-  has_many :likes
+  has_many :users
 
   belongs_to :user
   belongs_to :language

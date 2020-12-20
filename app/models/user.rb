@@ -6,7 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :comments
   has_many :collects
-  has_many :likes
 
   has_one_attached :image
   
