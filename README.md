@@ -6,7 +6,7 @@
 | nickname          | string  | null: false               |
 | GitHub            | text    |                           |
 | introduce         | text    |                           |
-| prefecture_id    | integer | null: false               |
+| prefecture_id     | integer | null: false               |
 | age_id            | integer |                           |
 | language_id       | integer |                           |
 | type_id           | integer |                           |
@@ -16,6 +16,7 @@
 
 - has_many :collects
 - has_many :comments
+- has_many :likes
 
 ## collects テーブル
 
@@ -31,6 +32,7 @@
 ### Association
 
 - has_many :comments
+- has_many :likes
 - belongs_to :user
 
 
@@ -39,6 +41,16 @@
 | Column           | Type       | Options                        |
 | -------          | ---------- | ------------------------------ |
 | text             | text       | null: false,                   |
+| user             | references | null: false, foreign_key: true |
+| collect          | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :user
+- belongs_to :collect
+## likes テーブル
+
+| Column           | Type       | Options                        |
+| -------          | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | collect          | references | null: false, foreign_key: true |
 ### Association
