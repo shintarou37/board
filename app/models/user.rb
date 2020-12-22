@@ -9,16 +9,7 @@ class User < ApplicationRecord
   has_one :user_detail
   has_one_attached :image
   
-  
   with_options presence: true do
     validates :nickname
-    # validates :prefecture_id
   end
-  # with_options numericality: { other_than: 1 } do
-  #   validates :prefecture_id
-  #   validates :age_id
-  #   validates :language_id
-  #   validates :type_id
-  #   validates :goal_id
-  # end
 end
