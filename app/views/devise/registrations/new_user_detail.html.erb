@@ -1,0 +1,47 @@
+<h2>詳細情報登録</h2>
+
+<%= form_for(@user_detail, url: new_user_details_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user_detail %>
+
+<div class="field">
+  <h2>GitHub</h2>
+  <%= f.text_field :GitHub, class:"nickname", id:"nickname", placeholder:"GitHub", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>introduce</h2>
+  <%= f.text_area :introduce, class:"nickname", id:"nickname", placeholder:"introduce", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+  <h2>年齢</h2>
+  <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+  </div>
+
+  <div class="field">
+  <h2>現在お住まいの都道府県(必須)</h2>
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>あなたのエンジニアの種類</h2>
+  <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>習得言語、技能</h2>
+  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="field">
+  <h2>作りたいもの</h2>
+  <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
