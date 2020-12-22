@@ -73,13 +73,6 @@ ActiveRecord::Schema.define(version: 2020_12_21_053710) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.text "GitHub"
-    t.text "introduce"
-    t.integer "age_id"
-    t.integer "prefecture_id"
-    t.integer "language_id"
-    t.integer "type_id"
-    t.integer "goal_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
