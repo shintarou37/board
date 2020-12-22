@@ -11,6 +11,6 @@ class Language < ActiveHash::Base
     { id: 26, name: 'FileMaker' }, { id: 27, name: 'その他' }
   ]
   include ActiveHash::Associations
-  has_many :users
+  has_many :user_details
   has_many :collects
 end

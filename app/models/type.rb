@@ -4,6 +4,6 @@ class Type < ActiveHash::Base
     { id: 5, name: 'インフラエンジニア' }, { id: 6, name: 'データーベースエンジニア' }, { id: 7, name: 'その他' }
   ]
   include ActiveHash::Associations
-  has_many :users
+  has_many :user_details
   has_many :collects
 end

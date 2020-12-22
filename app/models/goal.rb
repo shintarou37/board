@@ -4,7 +4,7 @@ class Goal < ActiveHash::Base
     { id: 5, name: 'ゲーム開発' }, { id: 6, name: 'システム開発' }, { id: 7, name: 'その他' }
   ]
   include ActiveHash::Associations
-  has_many :users
+  has_many :user_details
   has_many :collects
   
 end

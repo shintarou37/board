@@ -18,5 +18,5 @@ class Age < ActiveHash::Base
     { id: 47, name: '60才' }
   ]
   include ActiveHash::Associations
-  has_many :users
+  has_many :user_details
 end
