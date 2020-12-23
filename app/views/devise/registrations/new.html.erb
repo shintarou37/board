@@ -1,13 +1,13 @@
-<div class = "conyainer">
+<div class = "conyainer mt-5" >
   <div class = "row">
-    <div class = "col-6" mx-auto>
-<h2>Sign up</h2>
+    <div class = "col-6 mx-auto" >
+<h2>新規登録</h2>
 <%= form_for(@user, url: user_registration_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
   <div class="form-group">
     <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, class:"nickname", id:"nickname", placeholder:"ニックネーム", maxlength:"40",class:"form-control" %>
+    <%= f.text_field :nickname,placeholder:"ニックネーム", maxlength:"40",class:"form-control" %>
   </div>
 
   <div class="form-group">
@@ -20,19 +20,17 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
+    <%= f.password_field :password, autocomplete: "new-password",class:"form-control", placeholder:"パスワード" %>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control", placeholder:"パスワード確認用" %>
   </div>
 
   <%= f.submit "Next",class:"btn btn-primary" %>
-
 <% end %>
-
-</div>
-</div>
+    </div>
+  </div>
 </div>
 
