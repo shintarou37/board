@@ -1,4 +1,17 @@
 <%= render 'header'%>
+<h1>
+  作りたいものが一緒の仲間を検索しよう！
+</h1>
+<%= search_form_for @p, url: collects_search_path do |f| %>
+  <%= f.label :goal_id_eq, '募集の習得言語' %>
+  <%= f.collection_select :goal_id_eq, Goal.all, :id, :name %>
+
+  <%= f.submit '検索' %>
+  <br>
+<% end %>
+
+
+
 <h1>投稿画面</h1>
 <%= form_with model: @collect, id: "form" do |f| %>
   <%= f.text_area :explanation, id: "content-1" %>
