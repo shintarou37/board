@@ -19,7 +19,7 @@ function load() {
         return null;
       }
       const list = document.getElementById("list");
-      const formText_1 = document.getElementById("content-1" );
+      const formText_1 = document.getElementById("content-1");
       const formText_2 = document.getElementById("content-2");
       const formText_3 = document.getElementById("content-3");
       const formText_4 = document.getElementById("content-4");
@@ -52,10 +52,10 @@ function load() {
       
       list.insertAdjacentHTML("beforebegin", HTML);
       formText_1.value = "";
-      formText_2.value = "";
-      formText_3.value = "";
-      formText_4.value = "";
-      formText_5.value = "";
+      formText_2.value = 1;
+      formText_3.value = 1;
+      formText_4.value = 1;
+      formText_5.value = 1;
     };
     e.preventDefault();
   })

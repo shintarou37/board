@@ -1,13 +1,12 @@
 class CollectsController < ApplicationController
   before_action :collect, only: [:edit, :update, :show, :destroy]
-  before_action :search_product, only: [:new, :search]
+  before_action :search_collect, only: [:new, :search]
   def index
   end
 
   def new
     @collect = Collect.new
     @collects = Collect.all.order('created_at DESC')
-    set_collect_column
   end
 
   def search
@@ -57,13 +56,7 @@ class CollectsController < ApplicationController
     @collect = Collect.find(params[:id])
   end
 
-  def search_product
+  def search_collect
     @p = Collect.ransack(params[:q]) 
-    # binding.pry
-  end
-
-  def set_collect_column
-    @collect_language = Collect.select("language_id").distinct
-    # binding.pry
   end
 end
