@@ -20,7 +20,6 @@
 <%= @collect.framework.name %>
 </div>
 
-
 <%= link_to '戻る', new_collect_path %>
 <% if current_user.id == @collect.user_id %>
 <%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
@@ -37,7 +36,7 @@
 <div id='comments'>
 <% if @comments != nil %>
   <% @comments.reverse_each do |comment| %>
-    <p>コメント:<%= comment.text %>   コメント投稿者<%= comment.user.nickname %></p>
+    <p>コメント:<%= comment.text %>   コメント投稿者<%= link_to comment.user.nickname,user_path(comment.user_id) %></p>
   <% end %>
 <% end %>
 </div>
