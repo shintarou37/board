@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'new_user_details', to: 'users/registrations#create_user_detail'
   end
-  resources :users, only: [:show,:edit,:update]
+  resources :users, only: [:show]
   root to: 'collects#index'
   get 'collects/search'
   resources :collects do
