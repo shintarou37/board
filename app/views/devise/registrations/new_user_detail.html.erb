@@ -3,7 +3,7 @@
 <%= form_for(@user_detail, url: new_user_details_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user_detail %>
 
-<div class="field">
+  <div class="field">
   <h2>GitHub</h2>
   <%= f.text_field :GitHub, class:"nickname", id:"nickname", placeholder:"GitHub", maxlength:"40" %>
   </div>
@@ -43,5 +43,3 @@
   </div>
 
 <% end %>
-
-<%= render "devise/shared/links" %>
