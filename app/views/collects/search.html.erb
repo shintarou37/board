@@ -1,0 +1,22 @@
+<h1>
+  検索結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      検索した作りたい物:    <%= result.goal.name %>
+      募集中のエンジニアの種類:<%= result.type.name %>
+      募集言語:             <%= result.language.name %>
+      募集フレームワーク:     <%= result.framework.name %>
+      募集者:               <%= link_to result.user.nickname,user_path(result.user_id) %>
+      <%= link_to '投稿詳細ページに行ってコメントしよう！', collect_path(result.id) %>
+    </li>
+  <% end %>
+<% else %>
+  該当する商品はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

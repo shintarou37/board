@@ -18,5 +18,21 @@
 <h1>作りたいもの</h1>
 <%= @user_detail.goal.name%>
 
+<h1>投稿一覧</h1>
+<% if @shows.present? %>
+  <% @shows.each do |show| %>
+    <td>
+    <br>
+    <div>
+      検索した作りたい物:    <%= show.goal.name %>
+      <br>
+      募集中のエンジニアの種類:<%= show.type.name %>
+      <br>
+      募集言語:             <%= show.language.name %>
+      <br>
+      募集フレームワーク:     <%= show.framework.name %>
+    </div>
+    <%= link_to '投稿詳細ページ', collect_path(show.id) %>
+  <% end %>
+<% end %>
 <%= link_to '掲示板へ', new_collect_path%>
-<%= link_to 'ユーザー情報編集', edit_user_registration_path%>

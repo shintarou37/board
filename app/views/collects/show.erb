@@ -2,7 +2,7 @@
 <h1>詳細画面</h1>
 
 <div>投稿ユーザー
-<%= current_user.nickname %>
+<%= link_to @collect.user.nickname, user_path(@collect.user_id) %>
 </div>
 <div>募集説明文
 <%=  @collect.explanation %>
@@ -25,11 +25,14 @@
 <% if current_user.id == @collect.user_id %>
 <%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
 <%= link_to '投稿削除', collect_path(@collect.id), method: :delete %>
-<% end %>
+<% else %>
+
+<h1>コメント投稿</h1>
 
 <%= form_with model: @comment, url: collect_comments_path(@collect.id),id: "comment_form" do |f| %>
   <%= f.text_area :text %>
   <%= f.submit '投稿する'%>
+<% end %>
 <% end %>
 <div id='comments'>
 <% if @comments != nil %>
