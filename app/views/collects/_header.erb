@@ -1,8 +1,8 @@
 <header>
   <%= link_to 'Bulletin board',root_path,class: "top_page"%>
   <ul class = 'lists' id = 'lists'>
+  <li><%= link_to '掲示板へ', new_collect_path%> </li>
     <% if user_signed_in?%>
-    <li><%= link_to '掲示板へ', new_collect_path%> </li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
       <%= link_to 'ユーザー情報', user_path(current_user.id)%>
         <% if current_user.image.present? %>

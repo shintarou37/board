@@ -1,4 +1,5 @@
 class CollectsController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:new]
   before_action :collect, only: [:edit, :update, :show, :destroy]
   before_action :search_collect, only: [:new, :search]
   def index
