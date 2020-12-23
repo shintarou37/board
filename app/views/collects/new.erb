@@ -5,9 +5,7 @@
 <%= search_form_for @p, url: collects_search_path do |f| %>
   <%= f.label :goal_id_eq, '募集の習得言語' %>
   <%= f.collection_select :goal_id_eq, Goal.all, :id, :name %>
-
   <%= f.submit '検索' %>
-  <br>
 <% end %>
 
 
@@ -16,13 +14,13 @@
 <%= form_with model: @collect, id: "form" do |f| %>
   <%= f.text_area :explanation, id: "content-1" %>
   <h1>作りたいもの</h1>
-  <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
+  <%= f.collection_select(:goal_id, Goal.all, :id, :name) %>
   <h2>募集する習得言語、技能</h2>
-  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
+  <%= f.collection_select(:language_id, Language.all, :id, :name) %>
   <h2>募集するエンジニアの種類</h2>
-  <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
+  <%= f.collection_select(:type_id,Type.all,:id,:name) %>
   <h2>開発フレームワーク</h2>
-  <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
+  <%= f.collection_select(:framework_id,Framework.all,:id,:name) %>
   <%= f.submit '投稿する',id: "submit_post"%>
 <% end %>
 
