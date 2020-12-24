@@ -1,49 +1,67 @@
 <%= render 'header'%>
-<h1>
-  作りたいものが一緒の仲間を検索しよう！
-</h1>
-<%= search_form_for @p, url: collects_search_path do |f| %>
-  <%= f.label :goal_id_eq, '募集の習得言語' %>
-  <%= f.collection_select :goal_id_eq, Goal.all, :id, :name %>
-  <%= f.submit '検索' %>
+<% if user_signed_in? %>
+<div class = "container mt-5" >
+  <div class = "row">
+    <div class = "col-10 mx-auto" >
+
+      <h6>作りたいものが一緒の仲間を検索しよう！</h6>
+      <%= search_form_for @p, url: collects_search_path do |f| %>
+      <div class="form-group">
+        <%= f.label :goal_id_eq, '募集の習得言語' %>
+        <%= f.collection_select :goal_id_eq, Goal.all, :id, :name, {}, {class:"form-control"} %>
+        <%= f.submit '検索' ,class:"btn btn-primary"%>
+      </div>
+      <% end %>
+
+      <h3>投稿画面</h3>
+      <%= form_with model: @collect, id: "form" do |f| %>
+      <div class="form-group">
+        <h6>募集要項(必須)</h6>
+          <%= f.text_area :explanation, id: "content-1",class:"form-control posts" %>
+        <h6>作りたいもの(必須)</h6>
+          <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
+        <h6>募集する習得言語、技能(必須)</h6>
+          <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3",class:"form-control posts"}) %>
+        <h6>募集するエンジニアの種類(必須)</h6>
+          <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4",class:"form-control posts"}) %>
+        <h6>開発フレームワーク(必須)</h6>
+          <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5",class:"form-control posts"}) %>
+          <%= f.submit '投稿する',id: "submit_post",class:"btn btn-primary"%>
+      </div>
+      <% end %>
+<% else%>
+  <%= link_to 'ログインして投稿をしよう',new_user_session_path%>
 <% end %>
-
-
-
-<h1>投稿画面</h1>
-<%= form_with model: @collect, id: "form" do |f| %>
-  <h1>募集要項(必須)</h1>
-  <%= f.text_area :explanation, id: "content-1" %>
-  <h1>作りたいもの(必須)</h1>
-  <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
-  <h2>募集する習得言語、技能(必須)</h2>
-  <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
-  <h2>募集するエンジニアの種類(必須)</h2>
-  <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
-  <h2>開発フレームワーク(必須)</h2>
-  <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
-  <%= f.submit '投稿する',id: "submit_post"%>
-<% end %>
-
-<div id="list"></div>
-  
-<% @collects.each do |collect| %>
-  <div class="post">> 
-    <div class="post-date">
-      投稿日時：<%= collect.created_at %>
-    </div>
-    <div class="post-content">
-      募集要項：<%= collect.explanation %>
-     </div>
-    <div class="post-language">
-      求める習得言語、求める能力：<%= collect.language.name %>
+ 
+      <div class="card" style="width: 100%;">
+      <div id="list"></div>
+      <% @collects.each do |collect| %>
+        <div class="post">
+          <div class="card-header">
+            <div>
+              投稿日時：<%= collect.created_at %>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              募集要項：<%= collect.explanation%>
+            </div>
+            <div>
+                求める習得言語、求める能力：<%= collect.language.name %>
+            </div>
+            <div>
+              求めるエンジニアの種類：<%= collect.type.name %>
+            </div>
+            <div>
+              開発フレームワーク：<%= collect.framework.name %>
+            </div>
+          </div>
+          <div class="card-footer">
+            <%= link_to '詳細画面', collect_path(collect.id)%>
+          </div>
+        </div>
+      <% end %>
+      </div>
    </div>
-    <div class="post-language">
-      求めるエンジニアの種類：<%= collect.type.name %>
-   </div>
-    <div class="post-language">
-      開発フレームワーク：<%= collect.framework.name %>
-   </div>
-   <%= link_to '詳細画面', collect_path(collect.id)%>
   </div>
-<% end %>
+</div>
