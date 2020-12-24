@@ -1,17 +1,13 @@
-<header>
-  <%= link_to 'Bulletin board',root_path,class: "top_page"%>
-  <ul class = 'lists' id = 'lists'>
-  <li><%= link_to '掲示板へ', new_collect_path%> </li>
-    <% if user_signed_in?%>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
-      <%= link_to 'ユーザー情報', user_path(current_user.id)%>
-        <% if current_user.image.present? %>
-          <%= link_to image_tag(current_user.image, class: 'icon'), user_path(current_user.id)%>
-        <% end %>
-    </li>
-    <% else %>
-    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-    <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>
-    <% end %>
-  </ul>
-</header>
+  <div class="head">
+    <%= link_to 'Bulletin board',root_path,class: "top_page"%>
+    <div class = 'lists'>
+      <%= link_to '掲示板へ', new_collect_path,class:"list" %>
+      <% if user_signed_in?%>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class:"list" %>
+      <%= link_to 'ユーザー情報', user_path(current_user.id),class:"list"%>
+      <% else %>
+      <%= link_to 'ログイン', new_user_session_path,class: "list" %>
+      <%= link_to '新規登録',new_user_registration_path,class:"list" %>
+      <% end %>
+  </div>
+  </div>

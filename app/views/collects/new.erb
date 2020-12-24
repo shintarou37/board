@@ -2,6 +2,7 @@
 <% if user_signed_in? %>
 <h1>作りたいものが一緒の仲間を検索しよう！</h1>
 
+
   <%= search_form_for @p, url: collects_search_path do |f| %>
     <%= f.label :goal_id_eq, '募集の習得言語' %>
     <%= f.collection_select :goal_id_eq, Goal.all, :id, :name %>
@@ -48,3 +49,18 @@
    <%= link_to '詳細画面', collect_path(collect.id)%>
   </div>
 <% end %>
+
+<header>
+  <%= link_to 'Bulletin board',root_path,class: "top_page"%>
+  <ul class = 'lists'>
+    <li><%= link_to '掲示板へ', new_collect_path%> </li>
+    <% if user_signed_in?%>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
+    <%= link_to 'ユーザー情報', user_path(current_user.id)%>
+    </li>
+    <% else %>
+    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+    <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>
+    <% end %>
+  </ul>
+</header>
