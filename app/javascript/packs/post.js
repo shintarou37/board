@@ -33,22 +33,28 @@ function load() {
       
       const HTML = `
       <div class = 'post'>
-      <div class="post-date">
-        投稿日時：${collect.created_at}
-      </div>
-      <div class="post-content">
-          募集要項：${collect.explanation}
-      </div>
-      <div class="post-content">
-          求めるエンジニアの種類：${type}
-      </div>
-      <div class="post-content">
-      開発フレームワーク${framework}
-      </div>
-      <div class="post-content">
-          言語：${language}
-      </div>
-      <a href="/collects/${collect_id}">詳細画面</a>
+        <div class="card-header">
+          <div>
+            投稿日時：${collect.created_at}
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            募集要項：${collect.explanation}
+          </div>
+          <div>
+            求める習得言語、求める能力：${language}
+          </div>
+          <div>
+            求めるエンジニアの種類：${type}
+          </div>
+          <div>
+            開発フレームワーク${framework}
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="/collects/${collect_id}">詳細画面</a>
+        </div>
       </div>`;
       
       list.insertAdjacentHTML("beforebegin", HTML);
