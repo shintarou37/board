@@ -11,75 +11,57 @@
         <%= f.collection_select :goal_id_eq, Goal.all, :id, :name, {}, {class:"form-control"} %>
         <%= f.submit '検索' ,class:"btn btn-primary"%>
       </div>
-        <% end %>
+      <% end %>
 
-        <h3>投稿画面</h3>
-        <%= form_with model: @collect, id: "form" do |f| %>
-        <div class="form-group">
-          <h6>募集要項(必須)</h6>
+      <h3>投稿画面</h3>
+      <%= form_with model: @collect, id: "form" do |f| %>
+      <div class="form-group">
+        <h6>募集要項(必須)</h6>
           <%= f.text_area :explanation, id: "content-1",class:"form-control posts" %>
-          <h6>作りたいもの(必須)</h6>
+        <h6>作りたいもの(必須)</h6>
           <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
-          <h6>募集する習得言語、技能(必須)</h6>
+        <h6>募集する習得言語、技能(必須)</h6>
           <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3",class:"form-control posts"}) %>
-          <h6>募集するエンジニアの種類(必須)</h6>
+        <h6>募集するエンジニアの種類(必須)</h6>
           <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4",class:"form-control posts"}) %>
-          <h6>開発フレームワーク(必須)</h6>
+        <h6>開発フレームワーク(必須)</h6>
           <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5",class:"form-control posts"}) %>
           <%= f.submit '投稿する',id: "submit_post",class:"btn btn-primary"%>
-        </div>
-        <% end %>
-        <% else%>
-        <%= link_to 'ログインして投稿をしよう',new_user_session_path%>
-        <% end %>
- 
-
-<div class="card" style="width: 100%;">
-<div id="list"></div>
-  
-<% @collects.each do |collect| %>
-  <div class="post">
-    <div class="card-header">
-      <div>
-        投稿日時：<%= collect.created_at %>
       </div>
-    </div>
-    <div class="card-body">
-      <div>
-        募集要項：<%= collect.explanation%>
-      </div>
-      <div>
-          求める習得言語、求める能力：<%= collect.language.name %>
-      </div>
-      <div>
-        求めるエンジニアの種類：<%= collect.type.name %>
-      </div>
-      <div>
-        開発フレームワーク：<%= collect.framework.name %>
-      </div>
-    </div>
-    <div class="card-footer">
-      <%= link_to '詳細画面', collect_path(collect.id)%>
-    </div>
-  </div>
+      <% end %>
+<% else%>
+  <%= link_to 'ログインして投稿をしよう',new_user_session_path%>
 <% end %>
-</div>
+ 
+      <div class="card" style="width: 100%;">
+      <div id="list"></div>
+      <% @collects.each do |collect| %>
+        <div class="post">
+          <div class="card-header">
+            <div>
+              投稿日時：<%= collect.created_at %>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              募集要項：<%= collect.explanation%>
+            </div>
+            <div>
+                求める習得言語、求める能力：<%= collect.language.name %>
+            </div>
+            <div>
+              求めるエンジニアの種類：<%= collect.type.name %>
+            </div>
+            <div>
+              開発フレームワーク：<%= collect.framework.name %>
+            </div>
+          </div>
+          <div class="card-footer">
+            <%= link_to '詳細画面', collect_path(collect.id)%>
+          </div>
+        </div>
+      <% end %>
+      </div>
    </div>
   </div>
 </div>
-
-
-<header>
-  <%= link_to 'Bulletin board',root_path,class: "top_page"%>
-  <ul class = 'lists'>
-    <li><%= link_to '掲示板へ', new_collect_path%> </li>
-    <% if user_signed_in?%>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></li>
-    <%= link_to 'ユーザー情報', user_path(current_user.id)%>
-    </li>
-    <% else %>
-    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-    <li><%= link_to '新規登録',new_user_registration_path,class: 'list'%></li>
-    <% end %>
-  </ul>
-</header>
