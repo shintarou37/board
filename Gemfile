@@ -57,3 +57,7 @@ gem 'devise'
 gem 'active_hash'
 gem 'ransack'
 gem 'bootstrap', '~> 4.5.0'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
