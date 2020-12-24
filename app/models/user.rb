@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :collects
   has_one :user_detail
-  has_one_attached :image
   
   with_options presence: true do
     validates :nickname
