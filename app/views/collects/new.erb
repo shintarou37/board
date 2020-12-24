@@ -1,31 +1,38 @@
 <%= render 'header'%>
 <% if user_signed_in? %>
-<h1>作りたいものが一緒の仲間を検索しよう！</h1>
+<div class = "container mt-5" >
+  <div class = "row">
+    <div class = "col-10 mx-auto" >
 
+      <h6>作りたいものが一緒の仲間を検索しよう！</h6>
+      <%= search_form_for @p, url: collects_search_path do |f| %>
+      <div class="form-group">
+        <%= f.label :goal_id_eq, '募集の習得言語' %>
+        <%= f.collection_select :goal_id_eq, Goal.all, :id, :name, {}, {class:"form-control"} %>
+        <%= f.submit '検索' ,class:"btn btn-primary"%>
+      </div>
+        <% end %>
 
-  <%= search_form_for @p, url: collects_search_path do |f| %>
-    <%= f.label :goal_id_eq, '募集の習得言語' %>
-    <%= f.collection_select :goal_id_eq, Goal.all, :id, :name %>
-    <%= f.submit '検索' %>
-  <% end %>
-
-  <h1>投稿画面</h1>
-  <%= form_with model: @collect, id: "form" do |f| %>
-    <h1>募集要項(必須)</h1>
-    <%= f.text_area :explanation, id: "content-1" %>
-    <h1>作りたいもの(必須)</h1>
-    <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
-    <h2>募集する習得言語、技能(必須)</h2>
-    <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
-    <h2>募集するエンジニアの種類(必須)</h2>
-    <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
-    <h2>開発フレームワーク(必須)</h2>
-    <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
-    <%= f.submit '投稿する',id: "submit_post"%>
-  <% end %>
-<% else%>
-  <%= link_to 'ログインして投稿をしよう',new_user_session_path%>
-<% end %>
+        <h6>投稿画面</h6>
+        <%= form_with model: @collect, id: "form" do |f| %>
+        <h1>募集要項(必須)</h1>
+        <%= f.text_area :explanation, id: "content-1" %>
+        <h1>作りたいもの(必須)</h1>
+        <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
+        <h2>募集する習得言語、技能(必須)</h2>
+        <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
+        <h2>募集するエンジニアの種類(必須)</h2>
+        <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
+        <h2>開発フレームワーク(必須)</h2>
+        <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
+        <%= f.submit '投稿する',id: "submit_post"%>
+        <% end %>
+        <% else%>
+        <%= link_to 'ログインして投稿をしよう',new_user_session_path%>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 <div id="list"></div>
   
@@ -49,6 +56,8 @@
    <%= link_to '詳細画面', collect_path(collect.id)%>
   </div>
 <% end %>
+
+
 
 <header>
   <%= link_to 'Bulletin board',root_path,class: "top_page"%>
