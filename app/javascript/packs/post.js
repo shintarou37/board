@@ -30,6 +30,7 @@ function load() {
       const type = XHR.response.type;
       const framework = XHR.response.framework;
       const collect_id = XHR.response.collect_id;
+      const goal = XHR.response.goal;
       
       const HTML = `
       <div class = 'post'>
@@ -41,6 +42,9 @@ function load() {
         <div class="card-body">
           <div>
             募集要項：${collect.explanation}
+          </div>
+          <div>
+            作りたい物：${goal}
           </div>
           <div>
             求める習得言語、求める能力：${language}

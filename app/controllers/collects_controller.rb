@@ -21,7 +21,7 @@ class CollectsController < ApplicationController
     type = collect.type.name
     goal = collect.goal.name
     framework = collect.framework.name
-    render json:{ collect: collect, language: language, collect_id: collect_id, type: type, framework: framework}
+    render json:{ collect: collect, language: language, collect_id: collect_id, type: type, framework: framework, goal: goal }
   end
 
   def show
