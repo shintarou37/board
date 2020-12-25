@@ -1,38 +1,43 @@
 <%= render 'collects/header'%>
-<h1>ユーザー詳細情報</h1>
+<div class = "container mt-5" >
+  <div class = "row">
+    <div class = "col-10 mx-auto" >
+      <h1>ユーザー詳細情報</h1>
+      <ul class="list-group">
+        <li class="list-group-item">ユーザー名:<%= @user_show.nickname%></li>
+        <li class="list-group-item">GitHubのURL<%= @user_detail.GitHub%></li>
+        <li class="list-group-item">自己紹介<%= @user_detail.introduce%></li>
+        <li class="list-group-item">年齢<%= @user_detail.age.name%></li>
+        <li class="list-group-item">在住の都道府県<%= @user_detail.prefecture.name%></li>
+        <li class="list-group-item">習得言語、能力<%= @user_detail.language.name%></li>
+        <li class="list-group-item">エンジニアの種類<%= @user_detail.type.name%></li>
+        <li class="list-group-item">作りたいもの<%= @user_detail.goal.name%></li>
+      </ul>
+   
+      <h1>投稿一覧</h1>
+      <% if @shows.present? %>
+        <% @shows.each do |show| %>
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <div>
+             検索した作りたい物:<%= show.goal.name %>
+            </div>
+            <div>
+              募集中のエンジニアの種類:<%= show.type.name %>
+            </div>
+            <div>
+             募集言語:<%= show.language.name %>
+            </div>
+            <div>
+             募集フレームワーク:<%= show.framework.name %>
+            </div>
+            <%= link_to '投稿詳細ページ', collect_path(show.id) %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      <%= link_to '掲示板へ', new_collect_path%>
 
-<h1>ユーザー名</h1>
-<%= @user_show.nickname%>
-<h1>GitHubのURL</h1>
-<%= @user_detail.GitHub%>
-<h1>自己紹介</h1>
-<%= @user_detail.introduce%>
-<h1>年齢</h1>
-<%= @user_detail.age.name%>
-<h1>在住の都道府県</h1>
-<%= @user_detail.prefecture.name%>
-<h1>習得言語、能力</h1>
-<%= @user_detail.language.name%>
-<h1>エンジニアの種類</h1>
-<%= @user_detail.type.name%>
-<h1>作りたいもの</h1>
-<%= @user_detail.goal.name%>
-
-<h1>投稿一覧</h1>
-<% if @shows.present? %>
-  <% @shows.each do |show| %>
-    <td>
-    <br>
-    <div>
-      検索した作りたい物:    <%= show.goal.name %>
-      <br>
-      募集中のエンジニアの種類:<%= show.type.name %>
-      <br>
-      募集言語:             <%= show.language.name %>
-      <br>
-      募集フレームワーク:     <%= show.framework.name %>
     </div>
-    <%= link_to '投稿詳細ページ', collect_path(show.id) %>
-  <% end %>
-<% end %>
-<%= link_to '掲示板へ', new_collect_path%>
+  </div>
+</div>

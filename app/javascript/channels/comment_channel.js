@@ -11,8 +11,17 @@ consumer.subscriptions.create("CommentChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    const html = `<p>コメント:${data.comment.text}    コメント投稿者:${data.user}</p>`;
+    const html = 
+    `<div class="card">
+      <div class="card-header">
+      コメント投稿者:<a href= "/users/${data.comment.user_id}">${data.user}</a>
+      </div>
+      <div class="list-group-item mb-2">
+      コメント:${data.comment.text}  
+      </div>  
+    </div>`;
     const comments = document.getElementById('comments');
+    console.log(data.user.id)
     const newComment = document.getElementById('comment_text');
     comments.insertAdjacentHTML('afterbegin', html);
     newComment.value='';
