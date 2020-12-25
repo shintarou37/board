@@ -1,18 +1,37 @@
-<h1>検索結果</h1>
+<div class = "container mt-5" >
+  <div class = "row">
+     <div class = "col-10 mx-auto" >
 
-<% if @results.length !=0 %>
-  <% @results.each do |result| %>
-    <li>
-      検索した作りたい物:    <%= result.goal.name %>
-      募集中のエンジニアの種類:<%= result.type.name %>
-      募集言語:             <%= result.language.name %>
-      募集フレームワーク:     <%= result.framework.name %>
-      募集者:               <%= link_to result.user.nickname,user_path(result.user_id) %>
-      <%= link_to '投稿詳細ページに行ってコメントしよう！', collect_path(result.id) %>
-    </li>
-  <% end %>
-<% else %>
-  該当する募集はありません
-<% end %>
-<br>
-<%= link_to '掲示板へ戻る', new_collect_path %>
+      <h1>検索結果</h1>
+
+      <% if @results.length !=0 %>
+        <% @results.each do |result| %>
+          <div class="card" style="width: 100%;">
+          <div class="card-body">
+          <div>
+            検索した作りたい物:    <%= result.goal.name %>
+            </div>
+            <div>
+            募集中のエンジニアの種類:<%= result.type.name %>
+            </div>
+            <div>
+            募集言語:             <%= result.language.name %>
+            </div>
+            <div>
+            募集フレームワーク:     <%= result.framework.name %>
+            </div>
+            <div>
+            募集者:               <%= link_to result.user.nickname,user_path(result.user_id) %>
+            </div>
+            <%= link_to '投稿詳細ページに行ってコメントしよう！', collect_path(result.id) %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        該当する募集はありません
+      <% end %>
+      <br>
+      <%= link_to '掲示板へ戻る', new_collect_path %>
+    </div>
+  </div>
+</div>
