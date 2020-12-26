@@ -1,5 +1,5 @@
 function load() {
-  
+  if (document.URL.match( /new/ )){
   const submit_post = document.getElementById("submit_post")
   submit_post.addEventListener("click",(e)=>{
     const formData = new FormData(document.getElementById("form"));
@@ -70,5 +70,6 @@ function load() {
     };
     e.preventDefault();
   })
-}
+};
+};
 window.addEventListener("load", load);
