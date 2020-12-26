@@ -35,9 +35,17 @@
 .typed{
   position: absolute;
   color: white;
-  top: 40%;
-  left: 20%;
+  top: 30%;
+  left: 38%;
+  font-size: 80px;
   font-family: 'Corben', cursive;
+  display: none;
+}
+
+.btn-lg{
+  position: absolute;
+  top: 50%;
+  left: 45%;
 }
 
 
@@ -53,3 +61,4 @@
 .posts{
   margin-bottom: 10px;
 }
+
