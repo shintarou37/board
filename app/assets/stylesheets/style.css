@@ -31,13 +31,26 @@
 
 .anime{
   position: relative;
+  text-align: center;
 }
 .typed{
   position: absolute;
   color: white;
-  top: 40%;
-  left: 20%;
+  top: 120px;
+  left: 28%;
+  font-size: 80px;
   font-family: 'Corben', cursive;
+  display: none;
+}
+
+.btn-lg{
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+.bb{
+  top: 55%;
+  margin-top: 30px;
 }
 
 

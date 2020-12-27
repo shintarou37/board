@@ -1,5 +1,9 @@
-<%= render 'header' %>
 <div class = 'anime'>
 <div class = 'image' id = 'img'><%= image_tag 'cafe.jpg',class:"top_img"%></div>
-<h1><span class='typed',id = 'typed'>チーム開発できる仲間を見つけよう<span></h1>
+  
+<%= link_to "Welcome Engineers",new_collect_path,class:"typed"%>
+<%= link_to '掲示板へ', new_collect_path,class:"aa",class:"btn btn-primary btn-lg" %>
+<% unless user_signed_in?%>
+<%= link_to 'ログイン', new_user_session_path,class:"btn btn-success btn-lg bb" %>
+<% end %>
 </div>
