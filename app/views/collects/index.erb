@@ -1,5 +1,9 @@
 <div class = 'anime'>
 <div class = 'image' id = 'img'><%= image_tag 'cafe.jpg',class:"top_img"%></div>
-  <%= link_to "Welcome",new_collect_path,class:"typed"%>
-  <button><%= link_to '掲示板へ', new_collect_path,class:"aa",class:"btn btn-primary btn-lg" %></button>
+  
+<%= link_to "Welcome Engineers",new_collect_path,class:"typed"%>
+<%= link_to '掲示板へ', new_collect_path,class:"aa",class:"btn btn-primary btn-lg" %>
+<% unless user_signed_in?%>
+<%= link_to 'ログイン', new_user_session_path,class:"btn btn-success btn-lg bb" %>
+<% end %>
 </div>
