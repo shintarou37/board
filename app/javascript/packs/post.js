@@ -10,7 +10,6 @@ function load() {
     XHR.onload = () => {
       
       if (XHR.status != 200) {
-        debugger
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }

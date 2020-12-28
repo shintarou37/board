@@ -48,7 +48,7 @@
   top: 45%;
   left: 45%;
 }
-.bb{
+.top_login{
   top: 55%;
   margin-top: 30px;
 }
@@ -59,10 +59,28 @@
   margin-bottom: 20px;
 }
 
-.btn-primary{
+.btn-primary {
+  margin-top: 20px;
+}
+.btn-success{
   margin-top: 20px;
 }
 
 .posts{
   margin-bottom: 10px;
+}
+.search_color{
+  background-color: #eaf3ff;
+  border-bottom: solid 3px #516ab6;
+}
+.red{
+  color: red;
+}
+.border{
+  border: 10px groove black;
+  margin-bottom: 30px;
+}
+.if_login{
+  text-align: center;
+  margin: 20px 0;
 }
