@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 require("./post")
 require("./animation")
-require("./hidden")
 require('jquery')
 //= require jquery3
 //= require popper
