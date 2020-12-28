@@ -80,3 +80,7 @@
   border: 10px groove black;
   margin-bottom: 30px;
 }
+.if_login{
+  text-align: center;
+  margin: 20px 0;
+}
