@@ -1,29 +1,31 @@
 <% if user_signed_in? %>
-<div class = "container mt-5" >
+
+<div class = "container mt-3" >
   <div class = "row">
     <div class = "col-10 mx-auto" >
-
-      <h6>作りたいものが一緒の仲間を検索しよう！</h6>
+      <h1 class='search_color'>作りたいものが一緒の仲間を検索しよう！</h1>
       <%= search_form_for @p, url: collects_search_path do |f| %>
       <div class="form-group">
         <%= f.label :goal_id_eq, '募集の習得言語' %>
         <%= f.collection_select :goal_id_eq, Goal.all, :id, :name, {}, {class:"form-control"} %>
-        <%= f.submit '検索' ,class:"btn btn-primary"%>
+        <%= f.submit '検索' ,class:"btn btn-success"%>
       </div>
       <% end %>
 
-      <h3>投稿画面</h3>
+      <div class = 'border'></div>
+
+      <h1 class = 'search_color'>チーム開発できる仲間を募集しよう(投稿フォーム)</h1>
       <%= form_with model: @collect, id: "form" do |f| %>
       <div class="form-group">
-        <h6>募集要項(必須)</h6>
+        <h6>募集要項<span class = 'red'>(必須)</span></h6>
           <%= f.text_area :explanation, id: "content-1",class:"form-control posts" %>
-        <h6>作りたいもの(必須)</h6>
+        <h6>作りたいもの<span class = 'red'>(必須)</span></h6>
           <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
-        <h6>募集する習得言語、技能(必須)</h6>
+        <h6>募集する習得言語、技能<span class = 'red'>(必須)</span></h6>
           <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3",class:"form-control posts"}) %>
-        <h6>募集するエンジニアの種類(必須)</h6>
+        <h6>募集するエンジニアの種類<span class = 'red'>(必須)</span></h6>
           <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4",class:"form-control posts"}) %>
-        <h6>開発フレームワーク(必須)</h6>
+        <h6>開発フレームワーク<span class = 'red'>(必須)</span></h6>
           <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5",class:"form-control posts"}) %>
           <%= f.submit '投稿する',id: "submit_post",class:"btn btn-primary"%>
       </div>
