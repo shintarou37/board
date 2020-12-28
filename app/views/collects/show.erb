@@ -29,11 +29,11 @@
         </div>
       </div>
       <div class="card-footer">
-        <%= link_to '戻る', new_collect_path %>
+        <%= link_to '戻る', new_collect_path,class: 'back' %>
         <% if current_user.id == @collect.user_id %>
-        <%= link_to '編集ページへ', edit_collect_path(@collect.id) %>
+        <%= link_to '編集ページへ', edit_collect_path(@collect.id),class: 'edit' %>
         <%= link_to '投稿削除', collect_path(@collect.id), method: :delete %>
-        <% else %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -49,7 +49,6 @@
         <%= f.text_area :text,class:"form-control", placeholder:"コメントをしよう" %>
         <%= f.submit '投稿する',class: "btn btn-success mt-2"%>
       </div>
-      <% end %>
       <% end %>
       <div id='comments'>
         <% if @comments != nil %>
