@@ -1,8 +1,21 @@
-<%= form_with model: @collect,url: collect_path(@collect.id), local: true do |f| %>
-<%= f.text_area :explanation %>
-<%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2"}) %>
-<%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3"}) %>
-<%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4"}) %>
-<%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5"}) %>
-<%= f.submit '投稿する',id: "submit_post"%>
-<% end %>
+<div class = "container mt-5" >
+  <div class = "row">
+    <div class = "col-10 mx-auto" >
+      <%= form_with model: @collect,url: collect_path(@collect.id), local: true do |f| %>
+      <div class="form-group">
+        <h6>募集要項<span class = 'red'>(必須)</span></h6>
+          <%= f.text_area :explanation, id: "content-1",class:"form-control posts" %>
+        <h6>作りたいもの<span class = 'red'>(必須)</span></h6>
+          <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
+        <h6>募集する習得言語、技能<span class = 'red'>(必須)</span></h6>
+          <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3",class:"form-control posts"}) %>
+        <h6>募集するエンジニアの種類<span class = 'red'>(必須)</span></h6>
+          <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4",class:"form-control posts"}) %>
+        <h6>開発フレームワーク<span class = 'red'>(必須)</span></h6>
+          <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5",class:"form-control posts"}) %>
+          <%= f.submit '編集する',id: "submit_post",class:"btn btn-primary"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
