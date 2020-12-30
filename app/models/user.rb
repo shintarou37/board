@@ -8,7 +8,5 @@ class User < ApplicationRecord
   has_many :collects
   has_one :user_detail
   
-  with_options presence: true do
-    validates :nickname
-  end
+  validates :nickname,presence: true,length: { maximum: 40 }
 end

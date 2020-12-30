@@ -11,6 +11,10 @@ consumer.subscriptions.create("CommentChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
+    if (data.comment.text === "") {
+      alert(`コメントを入力してください`);
+      return null;
+    }
     const html = 
     `<div class="card">
       <div class="card-header">
@@ -21,7 +25,6 @@ consumer.subscriptions.create("CommentChannel", {
       </div>  
     </div>`;
     const comments = document.getElementById('comments');
-    console.log(data.user.id)
     const newComment = document.getElementById('comment_text');
     comments.insertAdjacentHTML('afterbegin', html);
     newComment.value='';

@@ -5,6 +5,7 @@
     <div class = "col-10 mx-auto" >
       <h1 class='search_color'>作りたいものが一緒の仲間を検索しよう！</h1>
       <%= search_form_for @p, url: collects_search_path do |f| %>
+      
       <div class="form-group">
         <%= f.label :goal_id_eq, '募集の習得言語' %>
         <%= f.collection_select :goal_id_eq, Goal.all, :id, :name, {}, {class:"form-control"} %>
@@ -18,7 +19,7 @@
       <%= form_with model: @collect, id: "form" do |f| %>
       <div class="form-group">
         <h6>募集要項<span class = 'red'>(必須)</span></h6>
-          <%= f.text_area :explanation, id: "content-1",class:"form-control posts" %>
+          <%= f.text_area :explanation, id: "content-1",class:"form-control posts",placeholder: '1000文字以内',maxlength: '1000' %>
         <h6>作りたいもの<span class = 'red'>(必須)</span></h6>
           <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
         <h6>募集する習得言語、技能<span class = 'red'>(必須)</span></h6>

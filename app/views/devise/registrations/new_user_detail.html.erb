@@ -2,13 +2,13 @@
   <div class = "row">
     <div class = "col-6 mx-auto" >
 
-      <h2>詳細情報登録</h2>
+      <h2>詳細情報登録(全ての項目がからでも登録できます)</h2>
 
       <%= form_for(@user_detail, url: new_user_details_path) do |f| %>
         <%= render "devise/shared/error_messages", resource: @user_detail %>
 
         <div class="form-group">
-          <%= f.label "自己紹介" %>
+          <%= f.label "自己紹介(1000文字以内)" %>
           <%= f.text_area :introduce, class:"form-control",placeholder:"(例)〇〇会社に〇〇年に入社し、主に〇〇業務を担当しておりました。今回は〇〇のようなアプリケーションを作りたいと考えております。
           ", maxlength:"1000" %>
         </div>
