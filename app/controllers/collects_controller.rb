@@ -15,6 +15,8 @@ class CollectsController < ApplicationController
   end
 
   def create
+    # collect = Collect.new(create_params)
+    # if collect.valid?
     collect = Collect.create(create_params)
     collect_id = collect.id
     language = collect.language.name
@@ -22,6 +24,10 @@ class CollectsController < ApplicationController
     goal = collect.goal.name
     framework = collect.framework.name
     render json:{ collect: collect, language: language, collect_id: collect_id, type: type, framework: framework, goal: goal }
+    # else
+      # binding.pry
+      # render :new
+    # end
   end
 
   def show

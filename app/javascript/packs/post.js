@@ -10,14 +10,18 @@ function load() {
     XHR.onload = () => {
       
       if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
+        alert(`aaError ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
       const collect = XHR.response.collect;
-      if (collect.explanation === "" || collect.language_id === "" || collect.goal_id === "" ||collect.type_id === "" || collect.framework_id === ""){
-        alert(`空の項目があります。必ず入力してください`);
+      
+      
+      if (collect.explanation === "" || collect.language_id === 1 || collect.goal_id === 1 ||collect.type_id === 1 || collect.framework_id === 1){
+        debugger
+        alert(`空の項目、もしくは選択していない項目があります。必ず入力してください`);
         return null;
       }
+      
       const list = document.getElementById("list");
       const formText_1 = document.getElementById("content-1");
       const formText_2 = document.getElementById("content-2");
