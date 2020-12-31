@@ -50,7 +50,7 @@ AWS(EC2)
 | --------          | ------  | ----------                |
 | GitHub            | text    |                           |
 | introduce         | text    |                           |
-| prefecture_id     | integer | null: false               |
+| prefecture_id     | integer |                           |
 | age_id            | integer |                           |
 | language_id       | integer |                           |
 | type_id           | integer |                           |
