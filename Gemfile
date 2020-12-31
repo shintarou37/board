@@ -58,6 +58,7 @@ gem 'active_hash'
 gem 'ransack'
 gem 'bootstrap', '~> 4.5.0'
 gem 'rails-i18n'
+gem 'rspec-rails', '~> 4.0.0'
 
 group :production do
   gem 'unicorn', '5.4.1'
