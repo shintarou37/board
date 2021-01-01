@@ -14,14 +14,14 @@ RSpec.describe Comment, type: :model do
       it 'コメントが必須であること' do
         @comment.text = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Textを入力してください")
+        expect(@comment.errors.full_messages).to include('Textを入力してください')
       end
 
       it 'コメントが200文字以内であること' do
-        over = Faker::Base.regexify("[aあ]{201}")
+        over = Faker::Base.regexify('[aあ]{201}')
         @comment.text = over
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Textは200文字以内で入力してください")
+        expect(@comment.errors.full_messages).to include('Textは200文字以内で入力してください')
       end
     end
   end

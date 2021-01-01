@@ -8,12 +8,12 @@ class Collect < ApplicationRecord
   belongs_to :type
   belongs_to :goal
   belongs_to :framework
-  
+
   with_options presence: true do
-    validates :explanation,length: { maximum: 1000 }
+    validates :explanation, length: { maximum: 1000 }
     with_options numericality: { other_than: 1 } do
       validates :language_id
-      validates :type_id 
+      validates :type_id
       validates :goal_id
       validates :framework_id
     end

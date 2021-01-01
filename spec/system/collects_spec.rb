@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Collects", type: :system do
+RSpec.describe 'Collects', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @collect = FactoryBot.build(:collect)
   end
-  context '募集の投稿ができる場合'do
+  context '募集の投稿ができる場合' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
       visit new_user_session_path
@@ -18,7 +18,7 @@ RSpec.describe "Collects", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: @collect.explanation
+      fill_in name = 'collect[explanation]', with: @collect.explanation
       select 'Webアプリ開発', from: '作りたいもの(必須)'
       select 'PHP', from: '募集する習得言語、技能(必須)'
       select 'WEBデザイナー', from: '募集するエンジニアの種類(必須)'
@@ -35,7 +35,7 @@ RSpec.describe "Collects", type: :system do
       expect(page).to have_content('Ruby on Rails')
     end
   end
-  context '投稿ができないとき'do
+  context '投稿ができないとき' do
     it 'ログインしていないと投稿することができない' do
       # トップページに遷移する
       visit root_path
@@ -60,7 +60,7 @@ RSpec.describe "Collects", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: ''
+      fill_in name = 'collect[explanation]', with: ''
       select '--', from: '作りたいもの(必須)'
       select '--', from: '募集する習得言語、技能(必須)'
       select '--', from: '募集するエンジニアの種類(必須)'

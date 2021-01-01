@@ -41,16 +41,16 @@ RSpec.describe UserDetail, type: :model do
     end
     context '新規登録がうまくいかない時' do
       it '自己紹介が1000文字より多い場合' do
-        over = Faker::Base.regexify("[aあ]{1001}")
+        over = Faker::Base.regexify('[aあ]{1001}')
         @user_detail.introduce = over
         @user_detail.valid?
-        expect(@user_detail.errors.full_messages).to include("Introduceは1000文字以内で入力してください")
+        expect(@user_detail.errors.full_messages).to include('Introduceは1000文字以内で入力してください')
       end
       it 'GitHubが100文字より多い場合' do
-        over = Faker::Base.regexify("[aあ]{101}")
+        over = Faker::Base.regexify('[aあ]{101}')
         @user_detail.GitHub = over
         @user_detail.valid?
-        expect(@user_detail.errors.full_messages).to include("Githubは100文字以内で入力してください")
+        expect(@user_detail.errors.full_messages).to include('Githubは100文字以内で入力してください')
       end
     end
   end
