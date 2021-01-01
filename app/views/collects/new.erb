@@ -18,15 +18,15 @@
       <h1 class = 'search_color'>チーム開発できる仲間を募集しよう(投稿フォーム)</h1>
       <%= form_with model: @collect, id: "form" do |f| %>
       <div class="form-group">
-        <h6>募集要項<span class = 'red'>(必須)</span></h6>
+        <%= f.label "募集要項(必須)"%>
           <%= f.text_area :explanation, id: "content-1",class:"form-control posts",placeholder: '1000文字以内',maxlength: '1000' %>
-        <h6>作りたいもの<span class = 'red'>(必須)</span></h6>
+        <%= f.label "作りたいもの(必須)",for:"content-2"%>
           <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {id:"content-2",class:"form-control posts"}) %>
-        <h6>募集する習得言語、技能<span class = 'red'>(必須)</span></h6>
+        <%= f.label "募集する習得言語、技能(必須)",for:"content-3"%>
           <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {id:"content-3",class:"form-control posts"}) %>
-        <h6>募集するエンジニアの種類<span class = 'red'>(必須)</span></h6>
+        <%= f.label "募集するエンジニアの種類(必須)",for:"content-4"%>
           <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {id:"content-4",class:"form-control posts"}) %>
-        <h6>開発フレームワーク<span class = 'red'>(必須)</span></h6>
+        <%= f.label "開発フレームワーク(必須)",for:"content-5"%>
           <%= f.collection_select(:framework_id,Framework.all,:id,:name, {}, {id:"content-5",class:"form-control posts"}) %>
           <%= f.submit '投稿する',id: "submit_post",class:"btn btn-primary"%>
       </div>
