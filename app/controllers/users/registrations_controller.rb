@@ -12,25 +12,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
-      unless @user.valid?
-        render :new and return
-      end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    render :new and return unless @user.valid?
+
+    session['devise.regist_data'] = { user: @user.attributes }
+    session['devise.regist_data'][:user]['password'] = params[:user][:password]
     @user_detail = @user.build_user_detail
     render :new_user_detail
   end
 
   def create_user_detail
-    @user = User.new(session["devise.regist_data"]["user"])
-  
+    @user = User.new(session['devise.regist_data']['user'])
+
     @user_detail = UserDetail.new(user_detail_params)
-    unless @user_detail.valid?
-      render :new_user_detail and return
-    end
+    render :new_user_detail and return unless @user_detail.valid?
+
     @user.build_user_detail(@user_detail.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
+    session['devise.regist_data']['user'].clear
     sign_in(:user, @user)
     redirect_to root_path
   end
@@ -40,21 +38,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # def update
-    
-  # end
 
+  # end
 
   private
 
   def user_detail_params
-    params.require(:user_detail).permit(:introduce,:GitHub,:age_id,:prefecture_id,:language_id,:type_id,:goal_id)
+    params.require(:user_detail).permit(:introduce, :GitHub, :age_id, :prefecture_id, :language_id, :type_id, :goal_id)
   end
 
   # GET /resource/edit
 
-
   # PUT /resource
-
 
   # DELETE /resource
   # def destroy

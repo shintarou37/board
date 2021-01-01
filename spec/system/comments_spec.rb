@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Comments", type: :system do
+RSpec.describe 'Comments', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @collect = FactoryBot.build(:collect)
   end
-  
-  context 'コメントができる場合'do
+
+  context 'コメントができる場合' do
     it 'コメントができる' do
       # ログインする
       visit new_user_session_path
@@ -19,7 +19,7 @@ RSpec.describe "Comments", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: @collect.explanation
+      fill_in name = 'collect[explanation]', with: @collect.explanation
       select 'Webアプリ開発', from: '作りたいもの(必須)'
       select 'PHP', from: '募集する習得言語、技能(必須)'
       select 'WEBデザイナー', from: '募集するエンジニアの種類(必須)'
@@ -37,7 +37,7 @@ RSpec.describe "Comments", type: :system do
       # 詳細画面に遷移する
       click_link '詳細画面'
       # コメントを送信して、保存される
-      fill_in name="comment[text]", with: 'コメントの結合テストです'
+      fill_in name = 'comment[text]', with: 'コメントの結合テストです'
       find('.btn-success').click
       Comment.count == 1
       # 保存内容が反映される
@@ -45,7 +45,7 @@ RSpec.describe "Comments", type: :system do
     end
   end
 
-  context 'コメントができない場合'do
+  context 'コメントができない場合' do
     it 'コメントが空の場合' do
       # ログインする
       visit new_user_session_path
@@ -58,7 +58,7 @@ RSpec.describe "Comments", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: @collect.explanation
+      fill_in name = 'collect[explanation]', with: @collect.explanation
       select 'Webアプリ開発', from: '作りたいもの(必須)'
       select 'PHP', from: '募集する習得言語、技能(必須)'
       select 'WEBデザイナー', from: '募集するエンジニアの種類(必須)'
@@ -76,7 +76,7 @@ RSpec.describe "Comments", type: :system do
       # 詳細画面に遷移する
       click_link '詳細画面'
       # コメントを送信しても保存されない
-      fill_in name="comment[text]", with: ''
+      fill_in name = 'comment[text]', with: ''
       find('.btn-success').click
       Comment.count == 0
     end

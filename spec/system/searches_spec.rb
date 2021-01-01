@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Searches", type: :system do
+RSpec.describe 'Searches', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @collect = FactoryBot.build(:collect)
   end
-  context '検索ができる場合'do
+  context '検索ができる場合' do
     it '検索ができる' do
       # ログインする
       visit new_user_session_path
@@ -18,7 +18,7 @@ RSpec.describe "Searches", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: @collect.explanation
+      fill_in name = 'collect[explanation]', with: @collect.explanation
       select 'Webアプリ開発', from: '作りたいもの(必須)'
       select 'PHP', from: '募集する習得言語、技能(必須)'
       select 'WEBデザイナー', from: '募集するエンジニアの種類(必須)'
@@ -37,7 +37,7 @@ RSpec.describe "Searches", type: :system do
     end
   end
 
-  context '検索する項目がない場合'do
+  context '検索する項目がない場合' do
     it '検索項目がない' do
       # ログインする
       visit new_user_session_path
@@ -50,7 +50,7 @@ RSpec.describe "Searches", type: :system do
       # 投稿ページに移動する
       visit new_collect_path
       # フォームに情報を入力する
-      fill_in name="collect[explanation]", with: @collect.explanation
+      fill_in name = 'collect[explanation]', with: @collect.explanation
       select 'Webアプリ開発', from: '作りたいもの(必須)'
       select 'PHP', from: '募集する習得言語、技能(必須)'
       select 'WEBデザイナー', from: '募集するエンジニアの種類(必須)'

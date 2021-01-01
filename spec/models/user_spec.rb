@@ -15,13 +15,13 @@ RSpec.describe User, type: :model do
       it 'ニックネームが必須であること' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームを入力してください')
       end
 
       it 'メールアドレスがない時' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
 
       it '重複したemailが存在する場合登録できないこと' do
@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
         @user.password = ''
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it 'パスワードが6文字より少ない時' do
@@ -55,14 +55,14 @@ RSpec.describe User, type: :model do
         @user.password = 'aaaaa11'
         @user.password_confirmation = 'iiiii11'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'パスワードは、確認用を含めて2回入力すること' do
         @user.password = 'aaaaa11'
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
     end
   end

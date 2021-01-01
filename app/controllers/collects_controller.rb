@@ -1,5 +1,5 @@
 class CollectsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:new]
+  before_action :authenticate_user!, except: [:index, :new]
   before_action :collect, only: [:edit, :update, :show, :destroy]
   before_action :search_collect, only: [:new, :search]
   def index
@@ -15,27 +15,19 @@ class CollectsController < ApplicationController
   end
 
   def create
-    # collect = Collect.new(create_params)
-    # if collect.valid?
     collect = Collect.create(create_params)
     collect_id = collect.id
     language = collect.language.name
     type = collect.type.name
     goal = collect.goal.name
     framework = collect.framework.name
-    render json:{ collect: collect, language: language, collect_id: collect_id, type: type, framework: framework, goal: goal }
-    # else
-      # binding.pry
-      # render :new
-    # end
+    render json: { collect: collect, language: language, collect_id: collect_id, type: type, framework: framework, goal: goal }
   end
 
   def show
     collect = Collect.find(params[:id])
     @comment = Comment.new
-    if collect.comments.present?
-      @comments = collect.comments
-    end
+    @comments = collect.comments if collect.comments.present?
   end
 
   def edit
@@ -55,8 +47,9 @@ class CollectsController < ApplicationController
   end
 
   private
+
   def create_params
-    params.require(:collect).permit(:explanation,:language_id,:goal_id,:type_id,:framework_id).merge(user_id: current_user.id)
+    params.require(:collect).permit(:explanation, :language_id, :goal_id, :type_id, :framework_id).merge(user_id: current_user.id)
   end
 
   def collect
@@ -64,6 +57,6 @@ class CollectsController < ApplicationController
   end
 
   def search_collect
-    @p = Collect.ransack(params[:q]) 
+    @p = Collect.ransack(params[:q])
   end
 end
