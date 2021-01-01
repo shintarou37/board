@@ -17,7 +17,6 @@ function load() {
       
       
       if (collect.explanation === "" || collect.language_id === 1 || collect.goal_id === 1 ||collect.type_id === 1 || collect.framework_id === 1){
-        debugger
         alert(`空の項目、もしくは選択していない項目があります。必ず入力してください`);
         return null;
       }

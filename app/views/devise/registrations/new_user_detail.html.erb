@@ -8,39 +8,39 @@
         <%= render "devise/shared/error_messages", resource: @user_detail %>
 
         <div class="form-group">
-          <%= f.label "自己紹介(1000文字以内)" %>
+          <%= f.label "自己紹介(1000文字以内)",for:"user_introduce" %>
           <%= f.text_area :introduce, class:"form-control",placeholder:"(例)〇〇会社に〇〇年に入社し、主に〇〇業務を担当しておりました。今回は〇〇のようなアプリケーションを作りたいと考えております。
-          ", maxlength:"1000" %>
+          ", maxlength:"1000" ,id:"user_introduce"%>
         </div>
 
         <div class="form-group">
-          <%= f.label "年齢" %>
-          <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"form-control"}) %>
+          <%= f.label "年齢",for:"user_age_id" %>
+          <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"form-control",id:"user_age_id"})%>
         </div>
 
         <div class="form-group">
-          <%= f.label "現在住んでいる都道府県" %>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"form-control"}) %>
+          <%= f.label "現在住んでいる都道府県",for:"user_prefecture_id" %>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"form-control",id:"user_prefecture_id"})%>
         </div>
 
         <div class="form-group">
-          <%= f.label "自分のエンジニアの種類" %>
-          <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {class:"form-control"}) %>
+          <%= f.label "自分のエンジニアの種類" ,for:"user_type_id"%>
+          <%= f.collection_select(:type_id,Type.all,:id,:name, {}, {class:"form-control",id:"user_type_id"})%>
         </div>
 
         <div class="form-group">
-          <%= f.label "習得言語、習得技能" %>
-          <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"form-control"}) %>
+          <%= f.label "習得言語、習得技能" ,for:"user_language_id"%>
+          <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"form-control",id:"user_language_id"}) %>
         </div>
 
         <div class="form-group">
-          <%= f.label "作りたい物" %>
-          <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {class:"form-control"}) %>
+          <%= f.label "作りたい物" ,for:"user_goal_id"%>
+          <%= f.collection_select(:goal_id, Goal.all, :id, :name, {}, {class:"form-control",id:"user_goal_id"}) %>
         </div>
 
         <div class="form-group">
-          <%= f.label "GitHubのURL" %>
-          <%= f.text_field :GitHub, class:"form-control", id:"nickname", placeholder:"GitHub", maxlength:"40" %>
+          <%= f.label "GitHubのURL" ,for:"user_GitHub"%>
+          <%= f.text_field :GitHub, class:"form-control", id:"nickname", placeholder:"GitHub", maxlength:"40",id:"user_GitHub" %>
         </div>
 
         <%= f.submit "登録",class:"btn btn-primary" %>

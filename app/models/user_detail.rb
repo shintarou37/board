@@ -7,4 +7,5 @@ class UserDetail < ApplicationRecord
   belongs_to :type
   belongs_to :goal
   validates :introduce,length: { maximum: 1000 }
+  validates :GitHub,length: { maximum: 100 }
 end

@@ -44,7 +44,7 @@
       <h3>コメント投稿</h3>
       <%= form_with model: @comment, url: collect_comments_path(@collect.id),id: "comment_form" do |f| %>
       <div class="form-group">
-        <%= f.text_area :text,class:"form-control", placeholder:"コメントをしよう" %>
+        <%= f.text_area :text,class:"form-control", placeholder:"コメントをしよう(200文字以内)" %>
         <%= f.submit '投稿する',class: "btn btn-success mt-2"%>
       </div>
       <% end %>
